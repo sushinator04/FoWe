@@ -5,8 +5,14 @@ article {
   line-height: 1.5rem;
 
   & header {
+    display: flex;
     border-bottom: 1px solid var(--border-color);
     padding: var(--space);
+    align-items: end;
+
+    & h1 {
+      flex: 1;
+    }
 
     & a {
       text-decoration: none;
@@ -16,16 +22,35 @@ article {
   & main {
     padding: var(--space);
     width: inherit;
+
     & img {
-      width: inherit;
+      width: 100%;
     }
   }
 
   & footer {
     border-top: 1px solid var(--border-color);
+
     & ul {
-      padding: 0;
       list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+
+      & li {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        & i {
+          margin: 0 auto;
+        }
+      }
+
+      & li:not(:first-child) {
+        border-left: 1px solid var(--border-color);
+      }
     }
   }
 }
