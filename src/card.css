@@ -19,13 +19,31 @@ article {
     }
   }
 
-  & main {
+  & main:not(:has(img)) {
     padding: var(--space);
     width: inherit;
+  }
 
-    & img {
-      width: 100%;
-    }
+  & header+main img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+  }
+
+  & main:has(+ footer) img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  & main img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
   }
 
   & footer {
