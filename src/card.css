@@ -1,31 +1,84 @@
+.card-container {
+  display: flex;            /* Aligns cards in a row */
+  flex-wrap: wrap;          /* Allows cards to wrap into new rows if there's not enough space */
+  gap: var(--space);        /* Keeps spacing between cards */
+  justify-content: flex-start; /* Aligns the cards to the left */
+  align-items: flex-start;  /* Ensures cards don’t stretch vertically and keep their dynamic height */
+}
+
+
 article {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   width: 350px;
   line-height: 1.5rem;
+  box-sizing: border-box;
 
   & header {
+    display: flex;
     border-bottom: 1px solid var(--border-color);
     padding: var(--space);
+    align-items: end;
+
+    & h1 {
+      flex: 1;
+    }
 
     & a {
       text-decoration: none;
     }
   }
 
-  & main {
+  & main:not(:has(img)) {
     padding: var(--space);
     width: inherit;
-    & img {
-      width: inherit;
-    }
+  }
+
+  & header+main img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+  }
+
+  & main:has(+ footer) img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  & main img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
   }
 
   & footer {
     border-top: 1px solid var(--border-color);
+
     & ul {
-      padding: 0;
       list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+
+      & li {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        & i {
+          margin: 0 auto;
+        }
+      }
+
+      & li:not(:first-child) {
+        border-left: 1px solid var(--border-color);
+      }
     }
   }
 }
