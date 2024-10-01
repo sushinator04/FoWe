@@ -1,46 +1,120 @@
 :root {
+  --border-color: #ccc;
+  /* Define your color variables here */
 }
 
 body {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  /* Sidebar (200px) and Main Content */
+  grid-template-rows: auto 1fr auto;
+  /* Header, Main Content, Footer */
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "footer footer";
+  /* Footer spans across both columns */
   overflow: hidden;
-  color: black;
 }
 
-body > section {
-  border-right: 1px solid var(--border-color);
-
-  & ul {
-    list-style-type: none;
-    padding-inline-start: 0;
-
-    & li > a {
-      color: #999;
-      font-size: 14px;
-      text-decoration: none;
-    }
-    & li > a:hover {
-      color: black;
-    }
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 50px 1fr
+  }
+  & span {
+    display: none;
   }
 }
 
-body > header {
+body>header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
   border-bottom: 1px solid var(--border-color);
+  height: 60px;
+  gap: 20px;
+}
 
-  & h1 {
-    font-size: 1.75rem;
-    margin: 0;
-    flex-grow: 1;
+
+header h1 {
+  font-size: 1.75rem;
+
+  flex-grow: 1;
+
+}
+@media (max-width: 768px){
+  header h1 {
+    font-size: 1.25rem;
+  }
+}
+  
+header .icons {
+  float: right;
+}
+
+header i {
+  font-size: 1.5rem;
+  /* Adjust the size of icons */
+  cursor: pointer;
+  /* Add a pointer cursor to icons */
+}
+
+@media (max-width: 768px){
+  header i {
+    font-size: 1.25rem;
   }
 }
 
-body > main {
-  grid-area: main;
-  height: calc(100vh - 100px);
-  overflow-y: scroll;
+body>section {
+  grid-area: sidebar;
+  border-right: 1px solid var(--border-color);
+  padding: 16px;
 }
 
-body > footer {
-  border-top: 1px solid var(--border-color);
+
+
+body>main {
+  grid-area: main;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+body>footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f0f0f0;
+  height: 60px;
+  width: 100%;
+  /* Ensure the footer spans the full width */
+  border-top: 1px solid var(--border-color);
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+}
+
+body>section ul {
+  list-style: none;
+  /* Remove the bullet points */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+section li i {
+  padding-right: 10px;
+}
+
+body>section ul li a {
+  color: #999;
+  font-size: 14px;
+  text-decoration: none;
 }

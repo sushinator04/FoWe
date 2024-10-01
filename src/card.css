@@ -1,16 +1,11 @@
-.card-container {
-  display: flex;            /* Aligns cards in a row */
-  flex-wrap: wrap;          /* Allows cards to wrap into new rows if there's not enough space */
-  gap: var(--space);        /* Keeps spacing between cards */
-  justify-content: flex-start; /* Aligns the cards to the left */
-  align-items: flex-start;  /* Ensures cards don’t stretch vertically and keep their dynamic height */
-}
 
 
 article {
+  
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   width: 350px;
+  
   line-height: 1.5rem;
   box-sizing: border-box;
 
