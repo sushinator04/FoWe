@@ -1,20 +1,19 @@
 :root {
   --border-color: #ccc;
-  /* Define your color variables here */
+  
 }
 
 body {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  /* Sidebar (200px) and Main Content */
-  grid-template-rows: auto 1fr auto;
-  /* Header, Main Content, Footer */
+  grid-template-columns: 150px 1fr;/* Sidebar and Main Content */
+  grid-template-rows: auto 1fr auto;/* Header, Main Content, Footer */
   grid-template-areas:
     "sidebar header"
     "sidebar main"
     "footer footer";
   /* Footer spans across both columns */
   overflow: hidden;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -118,3 +117,136 @@ body>section ul li a {
   font-size: 14px;
   text-decoration: none;
 }
+
+/* Form grid layout */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+  max-width: 1000px; /* Increase the form's width */
+  margin-left: 0; /* Align the form to the left */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Full width input elements */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="date"],
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Align buttons in a single column */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form group spacing */
+.form-group {
+  grid-column: span 2; /* Span across 2 columns by default */
+}
+
+/* Make the submit and reset buttons aligned side by side */
+.form-group.buttons {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group.buttons input[type="submit"],
+.form-group.buttons input[type="reset"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-group.buttons input[type="reset"] {
+  background-color: #6c757d;
+}
+
+.form-group.buttons input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.form-group.buttons input[type="reset"]:hover {
+  background-color: #5a6268;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr; /* Make the form single column on smaller screens */
+  }
+
+  .form-group {
+    grid-column: span 1; /* Ensure elements take the full width */
+  }
+
+  .form-group.buttons {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+/* Add this CSS for the card hover effect */
+
+article {
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
+}
+
+article:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Glowing cyan light */
+  transform: translateY(-10px); /* Slight lift effect on hover */
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  }
+}
+
+article:hover {
+  animation: glow 1.5s infinite alternate; /* Infinite glow animation on hover */
+}
+
+/* Make sure to adjust the other CSS as necessary */
+
+body > main {
+  grid-area: main;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* General styling for the cards */
+article h1, article p {
+  margin: 0;
+  padding-bottom: 8px;
+}
+
