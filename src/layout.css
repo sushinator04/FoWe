@@ -74,15 +74,17 @@ body>section {
 
 
 
-body>main {
+body > main {
   grid-area: main;
   padding: 16px;
-  overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   align-items: flex-start;
+  max-height: calc(100vh - 120px); /* Adjust the height dynamically */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
+
 
 body>footer {
   grid-area: footer;
