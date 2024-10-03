@@ -1,9 +1,9 @@
 :root {
   --border-color: #ccc;
-  
 }
 
 body {
+  padding: 0;
   display: grid;
   grid-template-columns: 150px 1fr;/* Sidebar and Main Content */
   grid-template-rows: auto 1fr auto;/* Header, Main Content, Footer */
@@ -12,6 +12,7 @@ body {
     "sidebar main"
     "footer footer";
   /* Footer spans across both columns */
+  height: calc(100vh - 60px);
   overflow: hidden;
   color: black;
 }
@@ -74,17 +75,16 @@ body>section {
 
 
 
-body > main {
+body>main {
   grid-area: main;
   padding: 16px;
+  overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   align-items: flex-start;
-  max-height: calc(100vh - 120px); /* Adjust the height dynamically */
-  overflow-y: auto; /* Enable vertical scrolling */
-}
 
+}
 
 body>footer {
   grid-area: footer;
@@ -198,57 +198,29 @@ body>section ul li a {
   }
 }
 
-
-
-
-
-/* Add this CSS for the card hover effect */
-
-article {
-  position: relative;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
-}
-
-article:hover {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Glowing cyan light */
-  transform: translateY(-10px); /* Slight lift effect on hover */
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+/* Define keyframes for a rainbow glowing border */
+@keyframes rainbowGlow {
+ 
+  60% {
+    box-shadow: 0 0 10px green;
   }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  80% {
+    box-shadow: 0 0 10px blue;
   }
-  100% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-  }
+ 
 }
 
-article:hover {
-  animation: glow 1.5s infinite alternate; /* Infinite glow animation on hover */
+
+/* Apply the rainbow glow effect to specific elements */
+body:has(#party-mode:checked) main,
+body:has(#party-mode:checked) header,
+body:has(#party-mode:checked) footer,
+body:has(#party-mode:checked) article {
+  animation: rainbowGlow 2s infinite alternate;
+  border-radius: 10px;
 }
 
-/* Make sure to adjust the other CSS as necessary */
 
-body > main {
-  grid-area: main;
-  padding: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
-}
 
-/* General styling for the cards */
-article h1, article p {
-  margin: 0;
-  padding-bottom: 8px;
-}
+
 
