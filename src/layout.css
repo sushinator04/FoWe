@@ -1,9 +1,16 @@
+/* from default.css */
 :root {
   --border-color: #a0a0a0;
   --border-radius: 1rem;
   --space: 1rem;
   --primary-color: #1677ff;
   --dark-primary-color: #003eb3;
+}
+
+/* from default.css */
+h1,
+p {
+  margin-block: 0.25rem;
 }
 
 body {
@@ -28,6 +35,7 @@ body>section {
     list-style-type: none;
     padding-inline-start: 0;
     padding: 0.5rem;
+    margin: 0;
 
     & li>a {
       color: #999;
@@ -36,7 +44,16 @@ body>section {
 
       & span {
         display: none;
-        /* TODO add media screen for the larger screens */
+      }
+    }
+
+    @media screen and (min-width: 599px) {
+      padding: 1rem;
+
+      & li>a>span {
+        display: inline;
+        padding-right: 3rem;
+
       }
     }
 
@@ -68,8 +85,8 @@ body>header {
 
 body>main {
   grid-area: main;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
   gap: 1rem;
   height: calc(100vh - 100px);
   overflow-y: scroll;
