@@ -1,50 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Document</title>
-    <link href="layout.css" rel="stylesheet" />
 
-    <script src="./main.ts" type="module"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Contact</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Document</title>
+  <link href="layout.css" rel="stylesheet" />
 
-    <section>
-      <ul>
-        <li>
-          <a href="/" title="Home"
-            ><i class="fa-solid fa-home"></i> <span>Home</span></a
-          >
-        </li>
-        <li>
-          <a href="/" title="Dashboard"
-            ><i class="fa-solid fa-dashboard"></i> <span>Dashboard</span></a
-          >
-        </li>
-        <li>
-          <a href="/" title="Profile"
-            ><i class="fa-solid fa-user"></i> <span>Profile</span></a
-          >
-        </li>
-        <li>
-          <a href="./contact.html" title="Contact"
-            ><i class="fa-solid fa-message"></i> <span>Contact</span></a
-          >
-        </li>
-      </ul>
-    </section>
+  <script src="./main.ts" type="module"></script>
+</head>
 
-    <main>
-<!--      TODO add form here-->
-    </main>
+<body>
+  <header>
+    <h1>Contact</h1>
+  </header>
 
-    <footer>
-      <div>Made with <i class="fa-solid fa-heart"></i> by David Sichau</div>
-    </footer>
-  </body>
+  <section>
+    <ul>
+      <li>
+        <a href="/" title="Home"><i class="fa-solid fa-home"></i> <span>Home</span></a>
+      </li>
+      <li>
+        <a href="/" title="Dashboard"><i class="fa-solid fa-dashboard"></i> <span>Dashboard</span></a>
+      </li>
+      <li>
+        <a href="/" title="Profile"><i class="fa-solid fa-user"></i> <span>Profile</span></a>
+      </li>
+      <li>
+        <a href="./contact.html" title="Contact"><i class="fa-solid fa-message"></i> <span>Contact</span></a>
+      </li>
+    </ul>
+  </section>
+
+  <main>
+
+    <form action="#" method="POST" class="contact-form">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name.." required />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Your email address.." required />
+
+      </div>
+
+      <!-- Birthday -->
+      <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" required min="2000-01-01" />
+      </div>
+
+      <!-- Radio Buttons -->
+      <div class="form-group">
+        <label>What do you like the most?</label>
+        <div class="radio-group">
+          <input type="radio" id="js" name="fav_language" value="JS" />
+          <label for="js">JavaScript</label>
+          <input type="radio" id="html" name="fav_language" value="HTML" />
+          <label for="html">HTML</label>
+          <input type="radio" id="css" name="fav_language" value="CSS" />
+          <label for="css">CSS</label>
+          <input type="radio" id="no_choice" name="fav_language" value="none" checked />
+          <label for="no_choice">Cannot make a decision</label>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" placeholder="Enter your message here.." rows="4" maxlength="30"
+          minlength="5" required></textarea>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="form-group">
+        <input type="checkbox" id="spam" name="spam" />
+        <label for="spam">Yes, I want to receive your very important spam messages!</label>
+      </div>
+
+      <!-- Submit and Reset Buttons -->
+      <div class="form-group buttons">
+        <input type="submit" value="Send" />
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+
+  </main>
+
+  <footer>
+    <div>Made with <i class="fa-solid fa-heart"></i> by David Sichau</div>
+  </footer>
+</body>
+
 </html>
