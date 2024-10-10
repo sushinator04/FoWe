@@ -129,7 +129,7 @@ body>section ul li a {
 }
 
 
-/* Form Styles different from Home/Card */
+/* if form and not cards are displayed */
 main:has(.contact-form) {
   display: block;
 }
